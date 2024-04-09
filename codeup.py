@@ -547,8 +547,24 @@ cnt = 0
 
 # result.sort()
 # print(result[0])
+
+
+# 3301 거스름돈
+# a = int(input())
+# sum = 0
+# money = [10, 50, 100, 500, 1000, 5000, 10000, 50000]
+# cnt = len(money)
+# count = 0
+
+
+# for i in range(cnt):
+#     if max(a, money[i]) == money[i]:
+#         a -= money[i -1]
+#         count += 1
+#     if sum == a:
+#         break
+
+# print(count)            
+
 # ------------------------------------------------------
-코드 추가 테스트
 
-
-이것이 깃이구나.
