@@ -328,12 +328,12 @@
 #     for j in i:
 #         print(j, end=" ")
 #     print()
-from re import S
 
 
-ditc = {}
 
-cnt = 0
+# ditc = {}
+
+# cnt = 0
 # a, b, k = map(int, input().split())
 # if k == 1:
 #     for i in [10**n for n in range(1, 9)]: #이건 틀렸다. 시작값이 무조건 0이거나 1이 아니다. 틀린거임.
@@ -529,6 +529,7 @@ cnt = 0
 
 
 # 그리디문제 --------------------------------------
+# 2001 : 최소대금
 # a, b, c, d, e = map(int, input().split())
 
 # p = []
@@ -549,6 +550,32 @@ cnt = 0
 # print(result[0])
 
 
+# 3120 : 리모컨
+# a, b = map(int, input().split())
+# if a > b: # a 와 b의 차를 구해야 하는데 절대값이 필요해서 두 수중 큰수에서 작은 수를 뺸것임.
+#     c = a - b
+# else:
+#     c = b - a
+# count = 0
+# while c != 0:
+#     if c >= 10:
+#         c -= 10
+#         count += 1
+#     elif 10 > c >= 8:
+#         c += 1
+#         count += 1
+#     elif c >= 5:
+#         c -= 5
+#         count += 1
+#     elif 5 > c >= 3:
+#         c += 1
+#         count += 1
+#     else:
+#         c -= 1
+#         count += 1
+# print(count)
+
+
 # 3301 거스름돈
 # a = int(input())
 # sum = 0
@@ -564,7 +591,6 @@ cnt = 0
 #     if sum == a:
 #         break
 
-# print(count)            
-
+# print(count)  
 # ------------------------------------------------------
 
