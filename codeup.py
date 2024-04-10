@@ -578,18 +578,17 @@
 
 # 3301 거스름돈
 # a = int(input())
-# sum = 0
 # money = [10, 50, 100, 500, 1000, 5000, 10000, 50000]
-# cnt = len(money)
+# money.sort(reverse=True) #거스름돈(money 리스트) 내림차순 정렬
+# num = len(money) 
 # count = 0
-
-
-# for i in range(cnt):
-#     if max(a, money[i]) == money[i]:
-#         a -= money[i -1]
+# total = 0
+# for i in range(num): #그냥 money리스트를 넣어 됨. range(num)자리에 money 이렇게 해도 작동함..
+#     while total + money[i] <= a:
+#         total += money[i]
 #         count += 1
-#     if sum == a:
-#         break
+# print(count)
+
 
 # print(count)  
 # ------------------------------------------------------
