@@ -330,7 +330,6 @@
 #     print()
 
 
-
 # ditc = {}
 
 # cnt = 0
@@ -580,7 +579,7 @@
 # a = int(input())
 # money = [10, 50, 100, 500, 1000, 5000, 10000, 50000]
 # money.sort(reverse=True) #거스름돈(money 리스트) 내림차순 정렬
-# num = len(money) 
+# num = len(money)
 # count = 0
 # total = 0
 # for i in range(num): #그냥 money리스트를 넣어 됨. range(num)자리에 money 이렇게 해도 작동함..
@@ -590,6 +589,97 @@
 # print(count)
 
 
-# print(count)  
-# ------------------------------------------------------
+# 3321 최고의 피자
 
+# 18달러 피자에 칼로리는 총합 650칼로리. 1달라당 칼로리는?
+# 16달러 피자에 칼로리는 총합 600칼로리. 1달라당 칼로리는?
+
+# 도우 가격 12달러, 칼로리 200
+# 토핑가격 2달러
+# 토핑은 총 3개, 각각 칼로리 50, 300, 100
+
+# 피자의 가격 경우 토핑없다 12달러, 토핑하나 14달러,          토핑두개 16달러,              	토핑세개 18달러
+# 	총칼로리         200달러  200달러 + for문한번	200달러 + 3*2번		200달러 + 3개 다 더한값
+
+# 각각의 경우의 수마다 나온 1달라당 칼로리수를 리스트에 append. 소수점 버리는 함수 사용하고 그중에서 sort해서 가장 마지막놈 출력.
+
+# 04/16 16:03 수정해야함.
+#168이 어떻게나오냐
+# 테스트케이스
+# 10
+# 15 4
+# 871
+# 757
+# 879
+# 556
+# 571
+# 306
+# 937
+# 1091
+# 1036
+# 213
+# 1005
+import math
+
+n = int(input()) # 토핑 종류 수
+a, b = map(int, input().split()) # a = 도우가격, b  = 토핑가격
+c = int(input()) # 도우 칼로리
+d = [] # 토핑 칼로리 리스트
+# k = 0 # 토핑 경우의수
+result = [] # 각 경우의 수별로 열량값 저장리스트
+for i in range(n):
+    d.append(int(input()))
+
+for k in range(n + 1):
+    print(k)
+    toping_calory = 0
+    money = a + (k * b)
+    if k == 0:
+        calory = c + toping_calory
+        result.append((calory / money))
+    elif k == 1:
+        for l in d:
+            result.append(((c + l) / money)) #토핑 하나씩 올렸을때 비용
+    elif k == n :
+        for u in d:
+            toping_calory += u
+        calory = c + toping_calory
+        result.append((calory / money))
+    elif 2 <= k < n:
+        print(k, "k값")
+        temp_calory = []
+        # for i in range(2, n):
+        #     print(i)
+        # 0과 최대값이 아닐때, 즉 1이거나 2일때 어떻게 해야할지 생각하자 04/15 14:15
+        dd = d[:]
+        dd.sort(reverse=True) # 내림차순정렬, 큰값이 0번째
+        temp = dd[0: -1]
+        for j in temp: # 첫번째(기준) 토핑
+            kk = k - 1
+            for nn in range(dd.index(j)+1, n+1): #현재 플러스 알파 토핑위치
+                count = 0
+                if not len(dd[nn : (nn + kk)]) >= kk: # 플러스 알파 토핑부터 뒤로 남아 있는 토핑이 kk만큼 남아있는가? 그렇지 않다면 돌아가라
+                        continue
+                for q in dd[nn:]: # 플러스 알파 토핑가격
+                    if q == j: # 첫번쨰 토핑과 +알파 토핑이 같다면.
+                        continue
+                    count += 1
+                    temp_toping = 0
+                    temp_toping += q
+                    # if count == kk and j + temp_toping + c not in temp_calory:
+                    #     temp_calory.append((c + temp_toping + j))
+                    # else:
+                    #     continue
+                    if count == kk:
+                        result.append((str((c + temp_toping + j) / money)) + "현재 k값" + str(k))
+                        # result.append((c + temp_toping + j) / money)
+                        count = 0
+                        break
+print(dd)
+print(result)
+# result.sort()
+# if result[-1] >= 160 :
+#     print(math.ceil(result[-1]))
+# else:
+#     print(math.floor(result[-1]))
+# ------------------------------------------------------
